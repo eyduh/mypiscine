@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strcpy.c                                        :+:    :+:            */
+/*   ft_str_is_alpha.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: areintha <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/11 14:36:27 by areintha      #+#    #+#                 */
-/*   Updated: 2021/06/17 14:58:41 by areintha      ########   odam.nl         */
+/*   Created: 2021/06/17 12:22:13 by areintha      #+#    #+#                 */
+/*   Updated: 2021/06/18 14:05:58 by areintha      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_alpha(char *str)
 {
-	int	loopdeloop ;
+	int	r ;
 
-	loopdeloop = 0 ;
-	while (src[loopdeloop])
+	if (str[0] == '\0')
+		r = 1 ;
+	else
 	{
-		dest[loopdeloop] = src[loopdeloop];
-		loopdeloop++ ;
+		while (*str)
+		{
+			if ((*str >= 'A' && *str <= 'Z') || \
+				(*str >= 'a' && *str <= 'z'))
+				r = 1;
+			else
+			{	
+				r = 0;
+				break ;
+			}
+			str++ ;
+		}
 	}
-	dest[loopdeloop] = '\0' ;
-	return (dest);
+	return (r);
 }

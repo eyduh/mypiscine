@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strcpy.c                                        :+:    :+:            */
+/*   ft_str_is_printable.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: areintha <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/11 14:36:27 by areintha      #+#    #+#                 */
-/*   Updated: 2021/06/17 14:58:41 by areintha      ########   odam.nl         */
+/*   Created: 2021/06/17 14:15:58 by areintha      #+#    #+#                 */
+/*   Updated: 2021/06/17 14:37:55 by areintha      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	loopdeloop ;
+int	ft_str_is_printable(char *str);
 
-	loopdeloop = 0 ;
-	while (src[loopdeloop])
+int	ft_str_is_printable(char *str)
+{
+	if (str[0] == '\0')
+		return (1);
+	else
 	{
-		dest[loopdeloop] = src[loopdeloop];
-		loopdeloop++ ;
+		while (*str)
+		{
+			if (*str < 32 && *str > 126)
+				return (1);
+			str++ ;
+		}
 	}
-	dest[loopdeloop] = '\0' ;
-	return (dest);
+	return (0);
 }
